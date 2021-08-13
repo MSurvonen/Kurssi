@@ -7,6 +7,16 @@ def debug_print(debug_msg=None, **kwargs):
     for key, value in kwargs.items():
         print("{}: {}".format(key, value))
 
+def debug_print_2(debug_msg=None, left=None, right=None):
+    # Toteutettu toinen debug-funktio left-right-tulostuksiin.
+    # Tehtävä virheellisesti olettaa, että kwargsit tulostetaan järjestyksessä "left, right".
+    # Dictionaryllä ei ole järjestystä, joten tulostusjärjestystä ei voida olettaa.
+    # Pisteitä ei herunut, kun tulostuksessa right tulikin ennen leftiä alkuperäisellä debug-funktiolla.
+    if debug_msg:
+        print(debug_msg)
+
+    print("left: {}".format(left))
+    print("right: {}".format(right))
 
 def mergesort(array):
     debug_print(array=array)
@@ -23,7 +33,7 @@ def mergesort(array):
 
 
 def merge(left, right):
-    debug_print(debug_msg="Merging...", left=left, right=right)
+    debug_print_2(debug_msg="Merging...", left=left, right=right)
 
     merged = []
 
